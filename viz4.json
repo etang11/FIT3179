@@ -1,0 +1,108 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 400,
+    "height": 400,
+    "title": "airbnb property price + availability",
+    "data": {
+        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"
+    },
+    "params": [
+        {
+            "name": "price_above",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 10000,
+                "step": 10,
+                "name": "max price: "
+            }
+        },
+        {
+            "name": "neighbourhood_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "Brooklyn",
+                    "Bronx",
+                    "Manhattan",
+                    "Staten Island",
+                    "Queens"
+                ],
+                "labels": [
+                    "Show All",
+                    "Brooklyn",
+                    "Bronx",
+                    "Manhattan",
+                    "Staten Island",
+                    "Queens"
+                ],
+                "name": "Neighbourhood Selection: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.price < price_above"
+        },
+        {
+            "filter": "neighbourhood_selection == null || datum.neighbourhood_group == neighbourhood_selection"
+        }
+    ],
+    "layer": [
+        {
+            "selection": {
+                "roomtype_highlight": {
+                    "type": "multi",
+                    "fields": [
+                        "room_type"
+                    ],
+                    "bind": "legend"
+                }
+            },
+            "mark": "circle",
+            "encoding": {
+                "x": {
+                    "field": "price",
+                    "type": "quantitative",
+                    "title": "$$"
+                },
+                "y": {
+                    "field": "availability_365",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "field": "room_type",
+                    "type": "nominal"
+                },
+                "opacity": {
+                    "condition": {
+                        "selection": "roomtype_highlight",
+                        "value": 0.6
+                    },
+                    "value": 0.01
+                },
+                "size": {
+                    "field": "number_of_reviews",
+                    "type": "quantitative"
+                },
+                "tooltip": [
+                    {
+                        "field": "neighbourhood",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "number_of_reviews",
+                        "type": "quantitative"
+                    },
+                    {
+                        "field": "",
+                        "type": "quantitative",
+                        "format": ".2f"
+                    }
+                ]
+            }
+        }
+    ]
+}
