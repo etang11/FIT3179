@@ -56,7 +56,7 @@
   "mark": "circle",
   "encoding": {
   "x": {
-  "field": "price",
+  "field": "number_of_reviews",
   "type": "quantitative",
   "title": "num of reviews"
   },
