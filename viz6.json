@@ -1,0 +1,72 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 500,
+    "height": 500,
+    "title": "top hosts",
+    "data": {
+        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"
+    },
+    "params": [
+        {
+            "name": "neighbourhood_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "Brooklyn",
+                    "Bronx",
+                    "Manhattan",
+                    "Staten Island",
+                    "Queens"
+                ],
+                "labels": [
+                    "Show All",
+                    "Brooklyn",
+                    "Bronx",
+                    "Manhattan",
+                    "Staten Island",
+                    "Queens"
+                ],
+                "name": "Neighbourhood Selection: "
+            }
+        }
+    ],
+
+    "transform": [
+        {
+            "filter": "neighbourhood_selection == null || datum.neighbourhood_group == neighbourhood_selection"
+        },
+        {
+          "aggregate": [{
+           "op": "count",
+           "field": "host_id",
+           "as": "host"
+          }],
+          "groupby": ["host_id"]
+        },
+        {
+            "window": [{
+              "op": "rank",
+              "as": "rank"
+            }],
+            "sort": [{ "field": "host", "order": "descending" }]
+          }, {
+            "filter": "datum.rank <= 5"
+          }
+
+    ],
+    
+      "mark": "bar",
+      "encoding": {
+        "x": {
+            "field": "host",
+            "type": "quantitative",
+            "title": "number of listings"
+        },
+        "y": {
+            "field": "host_id",
+            "type": "nominal",
+            "sort": "-x"
+        }
+      }
+}

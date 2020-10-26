@@ -1,0 +1,31 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 500,
+    "height": 500,
+    "title": "top hosts",
+    "data": {
+        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"
+    },
+    "transform": [
+        {
+          "aggregate": [{
+           "op": "count",
+           "field": "host_id",
+           "as": "host"
+          }],
+          "groupby": ["host_id"]
+        }
+    ],
+    
+      "mark": "bar",
+      "encoding": {
+        "x": {
+            "field": "host",
+            "type": "quantitative"
+        },
+        "y": {
+            "field": "host",
+            "type": "nominal"
+        }
+      }
+}
