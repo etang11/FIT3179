@@ -1,0 +1,23 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 200,
+    "height": 400,
+    "title": "airbnb property price + availability",
+    "data": {
+        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"
+    },
+    "mark": "area",
+    "transform": [
+      {
+        "density": "price",
+        "groupby": ["neighbourhood_group"],
+        "extent": [2500, 6500]
+      }
+    ],
+    "encoding": {
+      "x": {"field": "price", "type": "quantitative", "title": "Body Mass (g)"},
+      "y": {"field": "density", "type": "quantitative", "stack": "zero"},
+      "color": {"field": "Species", "type": "nominal"}
+    }
+  }
+  
