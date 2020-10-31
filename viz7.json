@@ -9,9 +9,9 @@
     
     "mark": {"type": "boxplot","clip":true},
     "encoding": {
-    "x": {"field": "neighbourhood_group", "type": "nominal"},
+    "y": {"field": "neighbourhood_group", "type": "nominal"},
     "color": {"field": "neighbourhood_group", "type": "nominal", "legend": null},
-    "y": {
+    "x": {
       "field": "price",
       "type": "quantitative",
       "scale": {"domainMax":300}
