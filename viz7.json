@@ -14,7 +14,7 @@
     "x": {
       "field": "price",
       "type": "quantitative",
-      "scale": {"domainMax":300}
+      "scale": {"domainMax":500}
     }
   }
 

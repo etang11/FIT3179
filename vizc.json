@@ -1,30 +1,64 @@
-"transform": [
-    {
-    "lookup": "properties.NAME",
-    "from": {
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "title": "airbnb prices in new york",
+    "width": 800,
+    "height": 600,
+    "projection": {
+        "type": "albers"
+    },
     "data": {
-    "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_chor
-   opleth_map/data/covid_10_10_2020.csv"
+        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/testfile.topojson",
+        "format": {
+            "type": "topojson",
+            "feature": "Borough_Boundaries_1_1"
+        }
     },
-    "key": "Country",
-    "fields": ["Active"]
-    }
-    }
+    "transform": [
+        {
+            "lookup": "properties.Borough_Boundaries_1_1",
+            "from": {
+                "data": {
+                    "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"
+                },
+                "key": "neighbourhood",
+                "fields": [
+                    "Active"
+                ]
+            }
+        }
     ],
-    "mark": {"type": "geoshape"},
-    "encoding": {
-    "color": {
-    "field": "Active",
-    "type": "quantitative",
-    "scale": {
-    "type": "threshold",
-    "domain": [10000, 100000, 500000],
-    "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
-    }
+    "mark": {
+        "type": "geoshape"
     },
-    "tooltip": [
-    {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-    {"field": "Active", "type": "quantitative"}
-    ]
+    "encoding": {
+        "color": {
+            "field": "Active",
+            "type": "quantitative",
+            "scale": {
+                "type": "threshold",
+                "domain": [
+                    10000,
+                    100000,
+                    500000
+                ],
+                "range": [
+                    "#fdbe85",
+                    "#fd8d3c",
+                    "#e6550d",
+                    "#a63603"
+                ]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "properties.NAME",
+                "type": "nominal",
+                "title": "Country"
+            },
+            {
+                "field": "Active",
+                "type": "quantitative"
+            }
+        ]
     }
-   }
+}
