@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "width": 200,
+    "width": 500,
     "height": 400,
     "title": "airbnb property price + availability",
     "data": {
@@ -17,6 +17,5 @@
       "scale": {"domainMax":300}
     }
   }
-
 
 }
