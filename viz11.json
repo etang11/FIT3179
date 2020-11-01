@@ -1,13 +1,14 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "data": {"url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"},
-    "title": "",
+    "title": "Heat Map - Property Type Average Price Per Night",
     "mark": "rect",
     "width": 375,
     "height": 300,
     "encoding": {
       "x": {
         "field": "room_type",
+        "title":"Property Type",
         "type": "nominal",
         "axis": {
             "labelAngle": 360
@@ -15,7 +16,8 @@
     },
       "y": {
         "field": "neighbourhood_group",
-        "type": "nominal"
+        "type": "nominal",
+        "title": "Borough"
       },
       "color": {
     "aggregate": "average",
@@ -39,7 +41,10 @@
         "#bd0026"
       ]
     }
-  }
+  },
+  "tooltip": [
+    {"field": "price", "aggregate":"average", "title": "Average Price", "format":".2f"}
+  ]
     },
     "config": {
       "view": {
