@@ -61,7 +61,7 @@
         "x": {
             "field": "host",
             "type": "quantitative",
-            "title": "Number of Property Listings"
+            "title": "Number of Listings"
         },
         "y": {
             "field": "host_id",
