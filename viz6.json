@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "width": 500,
     "height": 500,
-    "title": "top hosts",
+    "title": "Aggregated Bar Chart - Host ID & Number of Properties",
     "data": {
         "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"
     },
@@ -61,10 +61,11 @@
         "x": {
             "field": "host",
             "type": "quantitative",
-            "title": "number of listings"
+            "title": "Number of Property Listings"
         },
         "y": {
             "field": "host_id",
+            "title": "Host ID",
             "type": "nominal",
             "sort": "-x"
         }

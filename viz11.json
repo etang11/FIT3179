@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "data": {"url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"},
-
+    "title": "",
     "mark": "rect",
     "width": 375,
     "height": 300,
