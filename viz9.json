@@ -29,8 +29,9 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/ab1.csv",
+        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/ab1.csv"
       },
+      
       "mark": {
         "type": "circle",
         "size": 12,
