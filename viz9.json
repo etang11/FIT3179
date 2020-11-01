@@ -1,38 +1,74 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "width": 500,
-    "height": 700,
-    "title": "Airbnb properties in New York City",
-    "config": {"background": "#a7cdf2",
-      "view": {
-        "stroke": "transparent"
-     }},
-    "projection": {"type": "albers"},
-    "layer": [
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/testfile.topojson",
-          "format": {"type": "topojson", "feature": "Borough_Boundaries_1_1"}
-        },
-        "mark": {"type": "geoshape", "fill": "lightgrey", "stroke": "white"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 500,
+  "height": 700,
+  "title": "Airbnb properties in New York City",
+  "config": {
+    "background": "#a7cdf2",
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "projection": {
+    "type": "albers"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/testfile.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "Borough_Boundaries_1_1"
+        }
       },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/ab1.csv"
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgrey",
+        "stroke": "white"
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/ab1.csv",
+      },
+      "mark": {
+        "type": "circle",
+        "size": 12,
+        "tooltip": {
+          "content": "data"
+        }
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
         },
-        "mark": {"type": "circle", "size": 12,"tooltip": {"content": "data"}},
-        "encoding": {
-          "longitude": {"field": "longitude", "type": "quantitative"},
-          "latitude": {"field": "latitude", "type": "quantitative"},
-          "color": {
-            "field": "price",
-            "title":"Price Per Night",
-            "type": "quantitative",
-            "scale": {"type": "threshold",
-            "domain": [ 50, 100, 200, 400],
-            "range": ["#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20","#bd0026"]}
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "price",
+          "title": "Price Per Night",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              50,
+              100,
+              200,
+              400
+            ],
+            "range": [
+              "#ffffb2",
+              "#fecc5c",
+              "#fd8d3c",
+              "#f03b20",
+              "#bd0026"
+            ]
           }
         }
       }
-    ]
-  }
+    }
+  ]
+}
