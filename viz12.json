@@ -1,0 +1,13 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "description": "Shows the relationship between horsepower and the number of cylinders using tick marks.",
+    "data": {"url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"},
+    "mark": "tick",
+    "width": 3000,
+    "height": 200,
+    "encoding": {
+      "x": {"field": "price", "type": "quantitative"},
+      "y": {"field": "room_type", "type": "ordinal"}
+    }
+  }
+  
