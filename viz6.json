@@ -61,13 +61,18 @@
         "x": {
             "field": "host",
             "type": "quantitative",
-            "title": "Number of Listings"
-        },
+            "title": "Number of Listings",
+            "axis": {
+                "format":"0f"
+              }       
+             },
         "y": {
             "field": "host_id",
             "title": "Host ID",
             "type": "nominal",
             "sort": "-x"
-        }
+        },
+        "tooltip": [
+            {"field": "host", "title": "Number of Listings"}          ]
       }
 }
