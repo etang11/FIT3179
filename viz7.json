@@ -1,13 +1,17 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "width": 500,
-    "height": 400,
-    "title": "airbnb property price + availability",
+    "height": 200,
+    "title": "boxplot of price",
     "data": {
         "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"
     },
+    "transform": [
+      {"filter": "datum.number_of_reviews > 0"},
+     {"filter": "datum.price > 0"}
+      ],
     
-    "mark": {"type": "boxplot","clip":true},
+    "mark": {"type": "boxplot","clip":true, "extent":1.5},
     "encoding": {
     "y": {"field": "neighbourhood_group", "type": "nominal"},
     "color": {"field": "neighbourhood_group", "type": "nominal", "legend": null},

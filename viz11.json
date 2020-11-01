@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {"url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"},
+
+    "mark": "rect",
+    "width": 300,
+    "height": 200,
+    "encoding": {
+      "x": {
+        "field": "room_type",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "neighbourhood_group",
+        "type": "nominal"
+      },
+      "color": {
+        "aggregate": "average",
+        "field": "price" ,
+        "type": "quantitative",
+        "title": "test"
+      }
+    },
+    "config": {
+      "view": {
+        "stroke": "transparent"
+      }
+    }
+  }
+  

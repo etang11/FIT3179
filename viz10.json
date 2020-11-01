@@ -1,0 +1,27 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 200,
+    "height": 200,
+    "title": "airbnb property price + availability",
+    "data": {
+        "url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"
+    },
+    "mark": "circle",
+    "encoding": {
+      "column": {"field": "neighbourhood_group"},
+      "x": {
+        "field": "number_of_reviews",
+        "type": "quantitative",
+        "scale": {"zero": false}
+      },
+      "y": {
+        "field": "price",
+        "type": "quantitative",
+        "scale": {"zero": false}
+      },
+      "color": {"field": "room_type", "type": "nominal"},
+      "shape": {"field": "Species", "type": "nominal"},
+      "opacity": {"value": 1}
+    }
+  }
+  
