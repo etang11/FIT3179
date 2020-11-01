@@ -3,7 +3,7 @@
     "data": {"url": "https://raw.githubusercontent.com/etang11/FIT3179/master/AB_NYC_2019.csv"},
 
     "mark": "rect",
-    "width": 400,
+    "width": 375,
     "height": 300,
     "encoding": {
       "x": {
